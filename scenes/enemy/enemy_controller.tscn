@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bfbt6fs1ws1uc"]
+
+[ext_resource type="Script" uid="uid://b4oy7d5asawns" path="res://scenes/enemy/enemy_controller.gd" id="1_m8l7b"]
+[ext_resource type="Texture2D" uid="uid://dpev236qof0fr" path="res://assets/enemy_assets/ratman_paletted.png" id="2_m2nqr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2nqr"]
+atlas = ExtResource("2_m2nqr")
+region = Rect2(0, 8, 75, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twr8i"]
+atlas = ExtResource("2_m2nqr")
+region = Rect2(0, 80, 75, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdgmw"]
+atlas = ExtResource("2_m2nqr")
+region = Rect2(0, 152, 75, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv7dx"]
+atlas = ExtResource("2_m2nqr")
+region = Rect2(0, 224, 75, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m8l7b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2nqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twr8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdgmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv7dx")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m8l7b"]
+
+[node name="EnemyController" type="CharacterBody3D" unique_id=2139528177]
+script = ExtResource("1_m8l7b")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=546712195]
+transform = Transform3D(2, 0, 0, 0, 2.5, 0, 0, 0, 2, 0, 0.8999022, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_m8l7b")
+animation = &"run"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=199700369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_m8l7b")

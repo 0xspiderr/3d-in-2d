@@ -1,0 +1,1 @@
+class_name EnemyController extends CharacterBody3D
