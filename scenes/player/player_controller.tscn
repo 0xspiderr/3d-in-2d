@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ofeiy5a5a3xc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ev2gv"]
+
+[node name="PlayerController" type="CharacterBody3D" unique_id=1587913685]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=793374997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ev2gv")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1972532025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=92718340]
+target_position = Vector3(0, 0, -100)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=963277663]
+
+[node name="GunControl" type="Control" parent="CanvasLayer" unique_id=1356445333]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
