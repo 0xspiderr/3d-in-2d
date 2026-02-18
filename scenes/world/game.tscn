@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://dmxu60sfgf62n"]
 
+[ext_resource type="PackedScene" uid="uid://nuvd2f64g1i" path="res://scenes/environment/crates/crate.tscn" id="1_hqfqh"]
+[ext_resource type="PackedScene" uid="uid://ofeiy5a5a3xc" path="res://scenes/player/player_controller.tscn" id="1_w44h4"]
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r22yx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,6 +23,9 @@ albedo_color = Color(0.3254902, 0.24313726, 1, 1)
 material = SubResource("StandardMaterial3D_r22yx")
 size = Vector2(100, 100)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hqfqh"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
 [node name="Game" type="Node3D" unique_id=1988315769]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1667956533]
@@ -33,3 +39,34 @@ environment = SubResource("Environment_hqfqh")
 
 [node name="Ground" type="MeshInstance3D" parent="Environment" unique_id=1833849014]
 mesh = SubResource("PlaneMesh_r22yx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Ground" unique_id=1961060233]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Ground/StaticBody3D" unique_id=1998365521]
+shape = SubResource("ConcavePolygonShape3D_hqfqh")
+
+[node name="Crate" parent="Environment" unique_id=1432482738 instance=ExtResource("1_hqfqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Crate2" parent="Environment" unique_id=297092512 instance=ExtResource("1_hqfqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Crate3" parent="Environment" unique_id=564838931 instance=ExtResource("1_hqfqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="Crate4" parent="Environment" unique_id=899909909 instance=ExtResource("1_hqfqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Crate5" parent="Environment" unique_id=957987872 instance=ExtResource("1_hqfqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
+
+[node name="Crate6" parent="Environment" unique_id=45566009 instance=ExtResource("1_hqfqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="Crate7" parent="Environment" unique_id=1519068948 instance=ExtResource("1_hqfqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="Crate8" parent="Environment" unique_id=1535973028 instance=ExtResource("1_hqfqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+
+[node name="PlayerController" parent="." unique_id=1587913685 instance=ExtResource("1_w44h4")]

@@ -1,8 +1,47 @@
 [gd_scene format=3 uid="uid://ofeiy5a5a3xc"]
 
+[ext_resource type="Script" uid="uid://cadtup87cek8l" path="res://scenes/player/player_controller.gd" id="1_5afdu"]
+[ext_resource type="Texture2D" uid="uid://dxfwwatd3hjkv" path="res://assets/fps_weapon_sprites/FPS Weapon Sprites/frames/pistol1.png" id="1_5tt2p"]
+[ext_resource type="Texture2D" uid="uid://cwn6hrhnxn21m" path="res://assets/fps_weapon_sprites/FPS Weapon Sprites/frames/pistol2.png" id="2_5afdu"]
+[ext_resource type="Texture2D" uid="uid://cq1yfj2qdtxl8" path="res://assets/fps_weapon_sprites/FPS Weapon Sprites/frames/pistol3.png" id="3_m7hbg"]
+[ext_resource type="Texture2D" uid="uid://dq2a06vsc75sa" path="res://assets/fps_weapon_sprites/FPS Weapon Sprites/frames/pistol4.png" id="4_2k8ub"]
+[ext_resource type="Texture2D" uid="uid://coeo78vppiksq" path="res://assets/fps_weapon_sprites/FPS Weapon Sprites/frames/pistol5.png" id="5_rkuj1"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ev2gv"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ev2gv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5tt2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5afdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m7hbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2k8ub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rkuj1")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5tt2p")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [node name="PlayerController" type="CharacterBody3D" unique_id=1587913685]
+script = ExtResource("1_5afdu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=793374997]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -28,3 +67,12 @@ offset_top = -40.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="GunSprites" type="AnimatedSprite2D" parent="CanvasLayer/GunControl" unique_id=158613307]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(26, -267.00003)
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_ev2gv")
+animation = &"idle"
+autoplay = "idle"
